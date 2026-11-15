@@ -2,7 +2,7 @@
   <%= turbo_native_app? ? content_for(:native_title) : (content_for(:html_title) || (signed_in? ? Docuseal::BRAND_NAME : "#{Docuseal::BRAND_NAME} | Document Signing")) %>
 </title>
 <%= render 'shared/meta' %>
-<script>
+<script nonce="<%= content_security_policy_nonce %>">
   (function () {
     var query = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)')
     var apply = function () { document.documentElement.setAttribute('data-theme', query && query.matches ? 'dacforge-dark' : 'docuseal') }
