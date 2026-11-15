@@ -31,7 +31,7 @@ export function collectFindings ({ mode, accentHue, hueTolerance, chromaFloor, a
   }
   const contrast = (a, b) => { const [x, y] = [luminance(a), luminance(b)].sort((p, q) => q - p); return (x + 0.05) / (y + 0.05) }
   const offHue = (c) => {
-    if (allowed.includes(hex(c))) return false
+    if (allowed.some((a) => Math.abs(a.r - c.r) + Math.abs(a.g - c.g) + Math.abs(a.b - c.b) <= 12)) return false
     const { h, chroma } = hsl(c)
     const dh = Math.min(Math.abs(h - accentHue), 360 - Math.abs(h - accentHue))
     return chroma >= chromaFloor && dh > hueTolerance
@@ -95,7 +95,8 @@ export function collectFindings ({ mode, accentHue, hueTolerance, chromaFloor, a
   return [...unique.values()]
 }
 
-// Semantic success green, kept so a signed status reads as positive.
-const ALLOWED = ['#2f7d5b', '#4fb38a']
+// Semantic success green, kept so a signed status reads as positive. daisyUI
+// round-trips theme colors through HSL, so match within a small distance.
+const ALLOWED = [{ r: 47, g: 125, b: 91 }, { r: 79, g: 179, b: 138 }]
 
 export const AUDIT_ARGS = { accentHue: ACCENT_HUE, hueTolerance: HUE_TOLERANCE, chromaFloor: CHROMA_FLOOR, allowed: ALLOWED }

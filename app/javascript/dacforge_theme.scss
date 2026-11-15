@@ -147,3 +147,16 @@ $tint-hues: (
     background-color: #ffffff;
   }
 }
+
+// Status badges that upstream softens with bg-opacity-50 keep their content
+// color on a faded fill, which fails contrast. Tint the fill and use the status
+// color for the text instead.
+$status-vars: ("info": --in, "success": --su, "warning": --wa, "error": --er);
+
+@each $status, $var in $status-vars {
+  .badge-#{$status}.bg-opacity-50 {
+    background-color: hsl(var(#{$var}) / 0.16);
+    border-color: transparent;
+    color: hsl(var(#{$var}));
+  }
+}

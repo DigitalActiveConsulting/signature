@@ -44,6 +44,6 @@ export const SURFACES = [
   { id: 'signing-declined', who: 'client', path: (c) => `/s/${c.declined.slug}`, mobile: true },
   { id: 'signing-expired', who: 'client', path: (c) => `/s/${c.expired.slug}`, mobile: true },
   { id: 'signing-archived', who: 'client', path: (c) => `/s/${c.archived.slug}`, mobile: true },
-  { id: 'submission-preview', who: 'client', path: (c) => `/e/${c.completed.slug}`, mobile: true },
-  { id: 'draw-signature', who: 'client', path: (c) => `/p/${c.pending.slug}`, mobile: true }
+  { id: 'submission-preview', who: 'client', path: (c) => `/e/${c.completed.submissionSlug}`, mobile: true },
+  { id: 'draw-signature', who: 'client', path: (c) => `/p/${c.pending.slug}?f=00000000-0000-4000-9000-000000000002`, mobile: true }
 ]

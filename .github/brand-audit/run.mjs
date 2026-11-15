@@ -118,7 +118,7 @@ async function seed (browser) {
     adminState: state,
     template,
     pending: { slug: pending.slug, submissionId: pending.submission_id },
-    completed: { slug: completedSub.slug, submissionId: completedSub.submission_id },
+    completed: { slug: completedSub.slug, submissionId: completedSub.submission_id, submissionSlug: (await api(token, 'GET', `/api/submissions/${completedSub.submission_id}`)).slug },
     declined: { slug: declined.slug },
     expired: { slug: expired.slug },
     archived: { slug: archived.slug },
