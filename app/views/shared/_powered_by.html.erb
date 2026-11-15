@@ -1,4 +1,4 @@
-<div class="text-center px-2">
+<div class="text-center px-2" data-docuseal-attribution>
   <% if local_assigns[:with_counter] %>
     <% count = CompletedSubmitter.distinct.count(:submission_id) %>
     <% if count > 1 %>
@@ -9,5 +9,5 @@
   <% else %>
     <%= t('powered_by') %>
   <% end %>
-  <a href="<%= Docuseal::PRODUCT_URL %><%= local_assigns[:link_path] %>" class="underline"><%= Docuseal.product_name %></a> - <%= t('open_source_documents_software') %>
+  <a href="<%= Docuseal::PRODUCT_URL %><%= local_assigns[:link_path] %>" class="underline">DocuSeal</a> - <%= t('open_source_documents_software') %>
 </div>

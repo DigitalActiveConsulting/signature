@@ -1,25 +1,19 @@
 {
-  "name": "<%= Docuseal.product_name %>",
+  "name": "<%= Docuseal.product_name %> Sign",
   "short_name": "<%= Docuseal.product_name %>",
   "id": "/",
   "icons": [
-    {
-      "src": "/favicon.svg",
-      "type": "image/svg+xml",
-      "sizes": "any"
-    },
-    {
-      "src": "/apple-touch-icon.png",
-      "type": "image/png",
-      "sizes": "192x192"
-    }
+    { "src": "/favicon.svg", "type": "image/svg+xml", "sizes": "any" },
+    { "src": "/icon-192.png", "type": "image/png", "sizes": "192x192" },
+    { "src": "/icon-512.png", "type": "image/png", "sizes": "512x512" },
+    { "src": "/icon-maskable-512.png", "type": "image/png", "sizes": "512x512", "purpose": "maskable" }
   ],
   "start_url": "/",
   "display": "standalone",
   "scope": "/",
   "orientation": "any",
-  "description": "<%= Docuseal.product_name %> is an open source platform that provides secure and efficient digital document signing and processing.",
-  "categories": ["productivity", "utilities"],
-  "theme_color": "#FAF7F4",
-  "background_color": "#FAF7F4"
+  "description": "Document signing by <%= Docuseal.product_name %>.",
+  "categories": ["productivity", "business"],
+  "theme_color": "#FAFAF7",
+  "background_color": "#FAFAF7"
 }

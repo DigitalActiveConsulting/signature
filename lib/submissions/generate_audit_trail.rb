@@ -3,7 +3,7 @@
 module Submissions
   module GenerateAuditTrail
     FONT_SIZE = 9
-    TEXT_COLOR = '525252'
+    TEXT_COLOR = '2A2A26'
     FONT_PATH = '/fonts/GoNotoKurrent-Regular.ttf'
     FONT_BOLD_PATH = '/fonts/GoNotoKurrent-Bold.ttf'
     FONT_NAME = if File.exist?(FONT_PATH)
@@ -44,7 +44,7 @@ module Submissions
 
         io = StringIO.new
 
-        document.trailer.info[:Creator] = "#{Docuseal.product_name} (#{Docuseal::PRODUCT_URL})"
+        document.trailer.info[:Creator] = "#{Docuseal.product_name} (#{Docuseal::BRAND_URL})"
 
         if pkcs
           sign_params = {
@@ -109,7 +109,7 @@ module Submissions
         margin: [0, 0, 15, 0],
         border: {
           width: [1, 0, 0, 0],
-          color: %w[hp-gray-light]
+          color: %w[D8D8D2]
         },
         height: 1
       )
@@ -138,7 +138,7 @@ module Submissions
       composer.page_style(:default, page_size:) do |canvas, style|
         box = canvas.context.box(:media)
         canvas.save_graphics_state do
-          canvas.fill_color('FAF7F5')
+          canvas.fill_color('FAFAF7')
                 .rectangle(0, 0, box.width, 20)
                 .rectangle(0, box.height - 20, box.width, 20)
                 .fill
@@ -181,7 +181,7 @@ module Submissions
       end
 
       composer.style(:base, font: FONT_NAME, font_size: FONT_SIZE, fill_color: TEXT_COLOR, line_spacing: 1)
-      composer.style(:link, fill_color: 'hp-blue-light', underline: true)
+      composer.style(:link, fill_color: 'D94925', underline: true)
 
       composer.new_page
 
@@ -545,7 +545,7 @@ module Submissions
     end
 
     def sign_reason
-      'Signed with DocuSeal.com'
+      'Signed with DacForge'
     end
 
     def select_attachments(submitter)
@@ -567,11 +567,11 @@ module Submissions
     def add_logo(column, _submission = nil)
       column.image(PdfIcons.logo_io, width: 40, height: 40, position: :float)
 
-      column.formatted_text([{ text: 'DocuSeal',
-                               link: Docuseal::PRODUCT_EMAIL_URL }],
+      column.formatted_text([{ text: Docuseal.product_name,
+                               link: Docuseal::BRAND_URL }],
                             font_size: 20,
                             font: [FONT_NAME, { variant: :bold }],
-                            width: 100,
+                            width: 140,
                             padding: [5, 0, 0, 8],
                             position: :float, text_align: :left)
     end

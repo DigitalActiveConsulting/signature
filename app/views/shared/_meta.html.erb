@@ -1,14 +1,14 @@
 <% if Docuseal.demo? || (request.path != '/' && !devise_controller?) %>
   <meta name="robots" content="noindex">
 <% end %>
-<% title = content_for(:html_title) || (signed_in? ? Docuseal::BRAND_NAME : "#{Docuseal::BRAND_NAME} | Document Signing") %>
+<% title = content_for(:html_title) || (signed_in? ? Docuseal.product_name : "#{Docuseal.product_name} | Document Signing") %>
 <% description = content_for(:html_description) || 'Open source, self-hosted tool to streamline document filling and signing. Create custom PDF forms to complete and sign with an easy to use online tool.' %>
 <meta name="description" content="<%= description %>">
 <meta property="og:title" content="<%= title %>">
 <meta property="og:description" content="<%= description %>">
 <meta property="og:type" content="website">
 <meta property="og:url" content="<%= root_url %>">
-<meta property="og:site_name" content="<%= Docuseal::BRAND_NAME %>">
+<meta property="og:site_name" content="<%= Docuseal.product_name %>">
 <% if content_for(:disable_image_preview) %>
   <meta property="og:image" content="">
   <meta name="twitter:image" content="">
@@ -28,4 +28,5 @@
 <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png?v=dac1">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=dac1">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=dac1">
-<meta name="theme-color" content="#fafaf7">
+<meta name="theme-color" content="#fafaf7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#111110" media="(prefers-color-scheme: dark)">

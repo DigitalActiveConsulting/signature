@@ -50,7 +50,7 @@ async function seed (browser) {
   await page.fill('input[name$="[password]"]', 'audit')
   await page.fill('input[name$="[domain]"]', 'example.com')
   await page.fill('input[name$="[from_email]"]', 'sign@example.com')
-  await Promise.all([page.waitForNavigation(), page.click('form [type="submit"]')])
+  await Promise.all([page.waitForNavigation(), page.click('form:has(input[name$="[host]"]) [type="submit"]')])
 
   await page.goto('/settings/api')
   const tokenInput = page.locator('input[readonly], input[type="text"]').filter({ hasText: '' })

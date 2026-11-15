@@ -1,7 +1,8 @@
 <title>
-  <%= turbo_native_app? ? content_for(:native_title) : (content_for(:html_title) || (signed_in? ? Docuseal::BRAND_NAME : "#{Docuseal::BRAND_NAME} | Document Signing")) %>
+  <%= turbo_native_app? ? content_for(:native_title) : (content_for(:html_title) || (signed_in? ? Docuseal.product_name : "#{Docuseal.product_name} | Document Signing")) %>
 </title>
 <%= render 'shared/meta' %>
+<%= render 'layouts/dacforge_fonts' %>
 <script nonce="<%= content_security_policy_nonce %>">
   (function () {
     var query = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)')
