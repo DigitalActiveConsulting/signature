@@ -48,8 +48,8 @@ async function seed (browser) {
   const token = rails(`
     account = Account.first
     EncryptedConfig.find_or_initialize_by(account:, key: EncryptedConfig::EMAIL_SMTP_KEY).update!(value: {
-      'host' => 'localhost', 'port' => '1025', 'username' => 'audit', 'password' => 'audit', 'domain' => 'example.com',
-      'authentication' => 'plain', 'security' => 'none', 'from_email' => 'sign@example.com'
+      'host' => 'localhost', 'port' => '1025', 'username' => '', 'password' => '', 'domain' => 'example.com',
+      'security' => 'noverify', 'from_email' => 'sign@example.com'
     })
     puts User.first.access_token.token
   `).trim().split('\n').pop()
