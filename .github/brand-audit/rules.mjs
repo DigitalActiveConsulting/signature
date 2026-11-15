@@ -69,6 +69,7 @@ export function collectFindings ({ mode, accentHue, hueTolerance, chromaFloor, a
 
     if (bg && bg.a > 0.3 && offHue(bg)) add('off-brand-hue', el, bg, { prop: 'background' })
     if (bg && bg.a > 0.5 && mode === 'dark' && luminance(bg) > 0.45 && area > 1500) add('light-surface-in-dark', el, bg, { area: Math.round(area) })
+    if (bg && bg.a > 0.5 && !offHue(bg) && hsl(bg).chroma >= chromaFloor && area > 30000) add('accent-flood', el, bg, { area: Math.round(area) })
 
     const ownText = [...el.childNodes].some((n) => n.nodeType === 3 && n.textContent.trim())
     if (ownText && fg) {
