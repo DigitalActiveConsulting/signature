@@ -6,6 +6,8 @@ on:
       - dac
     paths-ignore:
       - '**.md'
+      - '.github/brand-audit/**'
+      - '.github/workflows/brand-audit.yml'
   workflow_dispatch:
 
 permissions:

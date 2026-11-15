@@ -1,0 +1,81 @@
+name: Brand audit
+
+on:
+  workflow_run:
+    workflows: [Build DAC image]
+    types: [completed]
+  workflow_dispatch:
+    inputs:
+      image:
+        description: Image tag to audit (commit sha)
+        required: true
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+
+    services:
+      postgres:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_USER: docuseal
+          POSTGRES_PASSWORD: docuseal
+          POSTGRES_DB: docuseal
+        ports: ['5432:5432']
+        options: --health-cmd "pg_isready -U docuseal" --health-interval 5s --health-retries 20
+      mailpit:
+        image: axllent/mailpit:v1.21
+        ports: ['1025:1025', '8025:8025']
+        env:
+          MP_SMTP_AUTH_ACCEPT_ANY: 1
+          MP_SMTP_AUTH_ALLOW_INSECURE: 1
+
+    env:
+      IMAGE: ghcr.io/digitalactiveconsulting/signature:${{ github.event.inputs.image || github.event.workflow_run.head_sha }}
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Start the app
+      run: |
+        docker run -d --name app --network host \
+          -e DATABASE_URL=postgresql://docuseal:docuseal@localhost:5432/docuseal \
+          -e HOST=localhost -e FORCE_SSL=false \
+          "$IMAGE"
+        for i in $(seq 1 90); do curl -sf -o /dev/null http://localhost:3000/up && exit 0; sleep 2; done
+        docker logs app | tail -50; exit 1
+
+    - uses: actions/setup-node@v4
+      with:
+        node-version: 22
+
+    - name: Install Playwright and poppler
+      run: |
+        npm install --no-save --prefix .github/brand-audit playwright@1.49.1
+        npx --prefix .github/brand-audit playwright install --with-deps chromium
+        sudo apt-get install -y poppler-utils
+
+    - name: Seed, capture and audit
+      run: node .github/brand-audit/run.mjs
+
+    - name: Render PDFs
+      if: always()
+      run: |
+        cd brand-audit-out
+        for f in audit-log signed-document; do [ -f $f.pdf ] && pdftoppm -png -r 80 $f.pdf shots/pdf-$f || true; done
+
+    - name: App logs on failure
+      if: failure()
+      run: docker logs app | tail -100
+
+    - uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: brand-audit
+        path: brand-audit-out
+        retention-days: 14
