@@ -11,10 +11,10 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'base-100': '#faf7f5',
-        'base-200': '#efeae6',
-        'base-300': '#e7e2df',
-        'base-content': '#291334'
+        'base-100': '#fafaf7',
+        'base-200': '#f1f0ea',
+        'base-300': '#d8d8d2',
+        'base-content': '#0a0a0a'
       }
     }
   }
