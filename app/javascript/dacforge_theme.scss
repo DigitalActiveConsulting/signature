@@ -161,3 +161,10 @@ $status-vars: ("info": --in, "success": --su, "warning": --wa, "error": --er);
     color: hsl(var(#{$var}));
   }
 }
+
+// Code samples use a dark syntax theme, so their box stays dark in both modes
+// instead of following neutral, which is the accent in dark mode.
+.mockup-code {
+  background-color: #161614;
+  color: #f1f0ea;
+}
