@@ -289,7 +289,7 @@ en: &en
   save: Save
   saving: Saving
   changes_have_been_saved: Changes have been saved.
-  unlock_with_docuseal_pro: Unlock with DocuSeal Pro
+  unlock_with_docuseal_pro: Not available in this edition
   use_your_own_certificates_to_sign_and_verify_pdf_files: Use your own certificates to sign and verify PDF files.
   upload_certificate: Upload Certificate
   name: Name
@@ -391,7 +391,7 @@ en: &en
   password_has_been_changed: Password has been changed.
   email_integration: Email Integration
   send_via_connected_email: Send via connected email
-  activate_with_docuseal_pro: Activate with DocuSeal Pro
+  activate_with_docuseal_pro: Not available in this edition
   send_signature_request_to_your_recipients_directly_from_your_email: Send signature request to your recipients directly from your email
   connect_gmail: Connect Gmail
   re_connect_gmail: Re-connect Gmail
