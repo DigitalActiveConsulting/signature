@@ -106,7 +106,7 @@ async function seed (browser) {
   const clientPage = await (await browser.newContext({ baseURL: BASE })).newPage()
   await clientPage.goto(`/s/${declined.slug}`)
   await clientPage.request.post(`/s/${declined.slug}/decline`, {
-    form: { authenticity_token: await csrf(clientPage), decline_reason: 'Audit decline' }, maxRedirects: 0
+    form: { authenticity_token: await csrf(clientPage), reason: 'Audit decline' }, maxRedirects: 0
   })
   await clientPage.context().close()
 
