@@ -8,7 +8,7 @@ const HUE_TOLERANCE = 18
 const CHROMA_FLOOR = 0.18
 
 // Runs inside the page. Returns findings for one rendered surface.
-export function collectFindings ({ mode, accentHue, hueTolerance, chromaFloor }) {
+export function collectFindings ({ mode, accentHue, hueTolerance, chromaFloor, allowed }) {
   const parse = (value) => {
     const m = value && value.match(/rgba?\(([\d.]+)[, ]+([\d.]+)[, ]+([\d.]+)(?:[,/ ]+([\d.]+))?\)/)
     if (!m) return null
@@ -30,13 +30,22 @@ export function collectFindings ({ mode, accentHue, hueTolerance, chromaFloor })
     return 0.2126 * ch[0] + 0.7152 * ch[1] + 0.0722 * ch[2]
   }
   const contrast = (a, b) => { const [x, y] = [luminance(a), luminance(b)].sort((p, q) => q - p); return (x + 0.05) / (y + 0.05) }
-  const offHue = (c) => { const { h, chroma } = hsl(c); const dh = Math.min(Math.abs(h - accentHue), 360 - Math.abs(h - accentHue)); return chroma >= chromaFloor && dh > hueTolerance }
+  const offHue = (c) => {
+    if (allowed.includes(hex(c))) return false
+    const { h, chroma } = hsl(c)
+    const dh = Math.min(Math.abs(h - accentHue), 360 - Math.abs(h - accentHue))
+    return chroma >= chromaFloor && dh > hueTolerance
+  }
   const describe = (el) => {
     const id = el.id ? `#${el.id}` : ''
     const cls = typeof el.className === 'string' ? '.' + el.className.trim().split(/\s+/).slice(0, 4).join('.') : ''
     return `${el.tagName.toLowerCase()}${id}${cls === '.' ? '' : cls}`.slice(0, 140)
   }
-  const exempt = (el) => el.closest('.keep-light, canvas, img, video, [data-brand-exempt], .page-container img, svg image')
+  const pageContainers = [...document.querySelectorAll('img')]
+    .filter((img) => img.getBoundingClientRect().width >= 200 && img.naturalWidth >= 400)
+    .map((img) => img.parentElement)
+  const onDocumentPage = (el) => pageContainers.some((page) => page !== el && page.contains(el))
+  const exempt = (el) => el.closest('.keep-light, canvas, img, video, pre, code, [data-brand-exempt], svg image') || onDocumentPage(el)
   const visible = (el, rect) => rect.width > 0 && rect.height > 0 && getComputedStyle(el).visibility !== 'hidden' && getComputedStyle(el).display !== 'none'
 
   const effectiveBg = (el) => {
@@ -86,4 +95,7 @@ export function collectFindings ({ mode, accentHue, hueTolerance, chromaFloor })
   return [...unique.values()]
 }
 
-export const AUDIT_ARGS = { accentHue: ACCENT_HUE, hueTolerance: HUE_TOLERANCE, chromaFloor: CHROMA_FLOOR }
+// Semantic success green, kept so a signed status reads as positive.
+const ALLOWED = ['#2f7d5b', '#4fb38a']
+
+export const AUDIT_ARGS = { accentHue: ACCENT_HUE, hueTolerance: HUE_TOLERANCE, chromaFloor: CHROMA_FLOOR, allowed: ALLOWED }

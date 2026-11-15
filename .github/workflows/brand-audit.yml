@@ -69,9 +69,11 @@ jobs:
         cd brand-audit-out
         for f in audit-log signed-document; do [ -f $f.pdf ] && pdftoppm -png -r 80 $f.pdf shots/pdf-$f || true; done
 
-    - name: App logs on failure
-      if: failure()
-      run: docker logs app | tail -100
+    - name: App and mail logs
+      if: always()
+      run: |
+        docker logs app 2>&1 | grep -i -E "mail|smtp|error" | tail -40 || true
+        curl -s http://localhost:8025/api/v1/messages?limit=1 | head -c 300; echo
 
     - uses: actions/upload-artifact@v4
       if: always()
