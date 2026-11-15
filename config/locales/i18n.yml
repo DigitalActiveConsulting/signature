@@ -810,7 +810,7 @@ en: &en
   use_otp_code_to_sign_in_or_click_the_link_below_html: 'Use <b>%{code}</b> code to sign in or click the link below:'
   complete_sign_in: Complete Sign In
   please_reply_to_this_email_if_you_dont_recognize_this_sign_in_attempt: Please reply to this email if you don't recognize this sign in attempt.
-  docuseal_support: DocuSeal Support
+  docuseal_support: DacForge Support
   use_the_edit_form_to_move_it_to_another_team: Use the edit form to move it to another team.
   too_many_sms_attempts_try_again_in_a_few_seconds: Too many SMS attempts. Try again in a few seconds.
   number_phone_number_is_invalid: "+%{number} phone number is invalid"
@@ -842,7 +842,7 @@ en: &en
   manage: Manage
   manage_plan: Manage plan
   this_submission_has_multiple_signers_which_prevents_the_use_of_a_sharing_link_html: This submission has multiple signers, which prevents the use of a sharing link as it's unclear which signer is responsible for specific fields. To resolve this, follow this <a href="https://www.docuseal.com/resources/pre-filling-recipients" class="link font-bold" rel="noopener noreferrer nofollow" target="_blank">guide</a> to define the default signer details.
-  welcome_to_docuseal: Welcome to DocuSeal
+  welcome_to_docuseal: Welcome to DacForge
   start_a_quick_tour_to_learn_how_to_create_and_send_your_first_document: Start a quick tour to learn how to create and send your first document
   start_tour: Start Tour
   name_a_z: Name A-Z
@@ -1005,7 +1005,7 @@ en: &en
   mcp_token_has_been_removed: MCP token has been removed.
   enable_mcp_server: Enable MCP server
   all_existing_mcp_connections_will_be_stopped_immediately_when_this_setting_is_disabled: All existing MCP connections will be stopped immediately when this setting is disabled.
-  connect_to_docuseal_mcp: Connect to DocuSeal MCP
+  connect_to_docuseal_mcp: Connect to DacForge MCP
   add_the_following_to_your_mcp_client_configuration: Add the following to your MCP client configuration
   works_with_claude_desktop_cursor_windsurf_vs_code_and_any_mcp_compatible_client: Works with Claude Desktop, Cursor, Windsurf, VS Code, and any MCP-compatible client.
   your_email_address_has_been_changed: Your email address has been changed
@@ -1972,7 +1972,7 @@ es: &es
   use_otp_code_to_sign_in_or_click_the_link_below_html: 'Usa el código <b>%{code}</b> para iniciar sesión o haz clic en el enlace a continuación:'
   complete_sign_in: Completar Inicio de Sesión
   please_reply_to_this_email_if_you_dont_recognize_this_sign_in_attempt: Responde a este correo electrónico si no reconoces este intento de inicio de sesión.
-  docuseal_support: Soporte DocuSeal
+  docuseal_support: Soporte DacForge
   use_the_edit_form_to_move_it_to_another_team: Usa el formulario de edición para moverlo a otro equipo.
   too_many_sms_attempts_try_again_in_a_few_seconds: Demasiados intentos de SMS. Intenta de nuevo en unos segundos.
   number_phone_number_is_invalid: "El número de teléfono +%{number} no es válido"
@@ -2004,7 +2004,7 @@ es: &es
   manage: Gestionar
   manage_plan: Gestionar plan
   this_submission_has_multiple_signers_which_prevents_the_use_of_a_sharing_link_html: 'Este envío tiene múltiples firmantes, lo que impide el uso de un enlace para compartir, ya que no está claro qué firmante es responsable de los campos específicos. Para resolver esto, sigue esta <a href="https://www.docuseal.com/resources/pre-filling-recipients" class="link font-bold" rel="noopener noreferrer nofollow" target="_blank">guía</a> para definir los detalles predeterminados del firmante.'
-  welcome_to_docuseal: Bienvenido a DocuSeal
+  welcome_to_docuseal: Bienvenido a DacForge
   start_a_quick_tour_to_learn_how_to_create_and_send_your_first_document: Inicia una guía rápida para aprender a crear y enviar tu primer documento.
   start_tour: Iniciar guía
   name_a_z: Nombre A-Z
@@ -2167,7 +2167,7 @@ es: &es
   mcp_token_has_been_removed: El token MCP ha sido eliminado.
   enable_mcp_server: Habilitar servidor MCP
   all_existing_mcp_connections_will_be_stopped_immediately_when_this_setting_is_disabled: Todas las conexiones MCP existentes se detendrán inmediatamente cuando se desactive esta configuración.
-  connect_to_docuseal_mcp: Conectar a DocuSeal MCP
+  connect_to_docuseal_mcp: Conectar a DacForge MCP
   add_the_following_to_your_mcp_client_configuration: Agregue lo siguiente a la configuración de su cliente MCP
   works_with_claude_desktop_cursor_windsurf_vs_code_and_any_mcp_compatible_client: Funciona con Claude Desktop, Cursor, Windsurf, VS Code y cualquier cliente compatible con MCP.
   your_email_address_has_been_changed: Tu dirección de correo electrónico ha sido cambiada
@@ -3140,7 +3140,7 @@ it: &it
   use_otp_code_to_sign_in_or_click_the_link_below_html: 'Usa il codice <b>%{code}</b> per accedere o clicca sul link qui sotto:'
   complete_sign_in: "Completa l'Accesso"
   please_reply_to_this_email_if_you_dont_recognize_this_sign_in_attempt: Rispondi a questa e-mail se non riconosci questo tentativo di accesso.
-  docuseal_support: Supporto DocuSeal
+  docuseal_support: Supporto DacForge
   use_the_edit_form_to_move_it_to_another_team: Usa il modulo di modifica per spostarlo in un altro team.
   too_many_sms_attempts_try_again_in_a_few_seconds: Troppi tentativi di SMS. Riprova tra qualche secondo.
   number_phone_number_is_invalid: "Il numero di telefono +%{number} non è valido"
@@ -3172,7 +3172,7 @@ it: &it
   manage: Gestisci
   manage_plan: Gestisci piano
   this_submission_has_multiple_signers_which_prevents_the_use_of_a_sharing_link_html: "Questa sottomissione ha più firmatari, il che impedisce l'uso di un link di condivisione poiché non è chiaro quale firmatario sia responsabile di specifici campi. Per risolvere questo problema, segui questa <a href=\"https://www.docuseal.com/resources/pre-filling-recipients\" class=\"link font-bold\" rel=\"noopener noreferrer nofollow\" target=\"_blank\">guida</a> per definire i dettagli predefiniti del firmatario."
-  welcome_to_docuseal: Benvenuto in DocuSeal
+  welcome_to_docuseal: Benvenuto in DacForge
   start_a_quick_tour_to_learn_how_to_create_and_send_your_first_document: Inizia un tour rapido per imparare a creare e inviare il tuo primo documento.
   start_tour: Inizia il tour
   name_a_z: Nome A-Z
@@ -3335,7 +3335,7 @@ it: &it
   mcp_token_has_been_removed: Il token MCP è stato rimosso.
   enable_mcp_server: Abilita server MCP
   all_existing_mcp_connections_will_be_stopped_immediately_when_this_setting_is_disabled: Tutte le connessioni MCP esistenti verranno interrotte immediatamente quando questa impostazione viene disattivata.
-  connect_to_docuseal_mcp: Connetti a DocuSeal MCP
+  connect_to_docuseal_mcp: Connetti a DacForge MCP
   add_the_following_to_your_mcp_client_configuration: Aggiungi quanto segue alla configurazione del tuo client MCP
   works_with_claude_desktop_cursor_windsurf_vs_code_and_any_mcp_compatible_client: Funziona con Claude Desktop, Cursor, Windsurf, VS Code e qualsiasi client compatibile con MCP.
   your_email_address_has_been_changed: Il tuo indirizzo email è stato modificato
@@ -4294,7 +4294,7 @@ fr: &fr
   use_otp_code_to_sign_in_or_click_the_link_below_html: 'Utilisez le code <b>%{code}</b> pour vous connecter ou cliquez sur le lien ci‑dessous :'
   complete_sign_in: Terminer la connexion
   please_reply_to_this_email_if_you_dont_recognize_this_sign_in_attempt: Veuillez répondre à cet e‑mail si vous ne reconnaissez pas cette tentative de connexion.
-  docuseal_support: Support DocuSeal
+  docuseal_support: Support DacForge
   use_the_edit_form_to_move_it_to_another_team: Utilisez le formulaire d’édition pour le déplacer vers une autre équipe.
   too_many_sms_attempts_try_again_in_a_few_seconds: Trop de tentatives SMS. Réessayez dans quelques secondes.
   number_phone_number_is_invalid: Le numéro de téléphone +%{number} est invalide
@@ -4326,7 +4326,7 @@ fr: &fr
   manage: Gérer
   manage_plan: Gérer la formule
   this_submission_has_multiple_signers_which_prevents_the_use_of_a_sharing_link_html: Cette soumission comporte plusieurs signataires, ce qui empêche l’utilisation d’un lien de partage car il n’est pas clair quel signataire est responsable de quels champs. Pour résoudre cela, suivez ce <a href="https://www.docuseal.com/resources/pre-filling-recipients" class="link font-bold" rel="noopener noreferrer nofollow" target="_blank">guide</a> pour définir les détails du signataire par défaut.
-  welcome_to_docuseal: Bienvenue sur DocuSeal
+  welcome_to_docuseal: Bienvenue sur DacForge
   start_a_quick_tour_to_learn_how_to_create_and_send_your_first_document: Lancez une visite rapide pour apprendre à créer et envoyer votre premier document
   start_tour: Démarrer la visite
   name_a_z: Nom A‑Z
@@ -4486,7 +4486,7 @@ fr: &fr
   mcp_token_has_been_removed: Le jeton MCP a été supprimé.
   enable_mcp_server: Activer le serveur MCP
   all_existing_mcp_connections_will_be_stopped_immediately_when_this_setting_is_disabled: Toutes les connexions MCP existantes seront arrêtées immédiatement lorsque ce paramètre est désactivé.
-  connect_to_docuseal_mcp: Se connecter à DocuSeal MCP
+  connect_to_docuseal_mcp: Se connecter à DacForge MCP
   add_the_following_to_your_mcp_client_configuration: Ajoutez ce qui suit à la configuration de votre client MCP
   works_with_claude_desktop_cursor_windsurf_vs_code_and_any_mcp_compatible_client: Fonctionne avec Claude Desktop, Cursor, Windsurf, VS Code et tout client compatible MCP.
   your_email_address_has_been_changed: Votre adresse e-mail a été modifiée
@@ -5458,7 +5458,7 @@ pt: &pt
   use_otp_code_to_sign_in_or_click_the_link_below_html: 'Use o código <b>%{code}</b> para entrar ou clique no link abaixo:'
   complete_sign_in: Concluir Login
   please_reply_to_this_email_if_you_dont_recognize_this_sign_in_attempt: Responda a este e-mail se você não reconhecer esta tentativa de login.
-  docuseal_support: Suporte DocuSeal
+  docuseal_support: Suporte DacForge
   use_the_edit_form_to_move_it_to_another_team: Use o formulário de edição para movê-lo para outra equipe.
   too_many_sms_attempts_try_again_in_a_few_seconds: Muitas tentativas de SMS. Tente novamente em alguns segundos.
   number_phone_number_is_invalid: "O número de telefone +%{number} é inválido"
@@ -5490,7 +5490,7 @@ pt: &pt
   manage: Gerenciar
   manage_plan: Gerenciar plano
   this_submission_has_multiple_signers_which_prevents_the_use_of_a_sharing_link_html: 'Este envio tem vários signatários, o que impede o uso de um link de compartilhamento, pois não está claro qual signatário é responsável por quais campos. Para resolver isso, siga este <a href="https://www.docuseal.com/resources/pre-filling-recipients" class="link font-bold" rel="noopener noreferrer nofollow" target="_blank">guia</a> para definir os detalhes padrão do signatário.'
-  welcome_to_docuseal: Bem-vindo ao DocuSeal
+  welcome_to_docuseal: Bem-vindo ao DacForge
   start_a_quick_tour_to_learn_how_to_create_and_send_your_first_document: Comece um tour rápido para aprender a criar e enviar seu primeiro documento.
   start_tour: Iniciar tour
   name_a_z: Nome A-Z
@@ -5653,7 +5653,7 @@ pt: &pt
   mcp_token_has_been_removed: O token MCP foi removido.
   enable_mcp_server: Ativar servidor MCP
   all_existing_mcp_connections_will_be_stopped_immediately_when_this_setting_is_disabled: Todas as conexões MCP existentes serão interrompidas imediatamente quando esta configuração for desativada.
-  connect_to_docuseal_mcp: Conectar ao DocuSeal MCP
+  connect_to_docuseal_mcp: Conectar ao DacForge MCP
   add_the_following_to_your_mcp_client_configuration: Adicione o seguinte à configuração do seu cliente MCP
   works_with_claude_desktop_cursor_windsurf_vs_code_and_any_mcp_compatible_client: Funciona com Claude Desktop, Cursor, Windsurf, VS Code e qualquer cliente compatível com MCP.
   your_email_address_has_been_changed: Seu endereço de e-mail foi alterado
@@ -6625,7 +6625,7 @@ de: &de
   use_otp_code_to_sign_in_or_click_the_link_below_html: 'Verwenden Sie den Code <b>%{code}</b>, um sich anzumelden, oder klicken Sie auf den untenstehenden Link:'
   complete_sign_in: Anmeldung abschließen
   please_reply_to_this_email_if_you_dont_recognize_this_sign_in_attempt: Bitte antworten Sie auf diese E-Mail, wenn Sie diesen Anmeldeversuch nicht erkennen.
-  docuseal_support: DocuSeal Support
+  docuseal_support: DacForge Support
   use_the_edit_form_to_move_it_to_another_team: Verwenden Sie das Bearbeitungsformular, um es in ein anderes Team zu verschieben.
   too_many_sms_attempts_try_again_in_a_few_seconds: Zu viele SMS-Versuche. Versuchen Sie es in ein paar Sekunden erneut.
   number_phone_number_is_invalid: "Die Telefonnummer +%{number} ist ungültig"
@@ -6657,7 +6657,7 @@ de: &de
   manage: Verwalten
   manage_plan: Plan verwalten
   this_submission_has_multiple_signers_which_prevents_the_use_of_a_sharing_link_html: 'Diese Einreichung hat mehrere Unterzeichner, was die Nutzung eines Freigabelinks verhindert, da unklar ist, welcher Unterzeichner für welche Felder verantwortlich ist. Um dies zu lösen, folgen Sie dieser <a href="https://www.docuseal.com/resources/pre-filling-recipients" class="link font-bold" rel="noopener noreferrer nofollow" target="_blank">Anleitung</a>, um die Standarddetails des Unterzeichners festzulegen.'
-  welcome_to_docuseal: Willkommen bei DocuSeal
+  welcome_to_docuseal: Willkommen bei DacForge
   start_a_quick_tour_to_learn_how_to_create_and_send_your_first_document: Starten Sie eine kurze Tour, um zu lernen, wie Sie Ihr erstes Dokument erstellen und versenden.
   start_tour: Starten
   name_a_z: Name A-Z
@@ -6820,7 +6820,7 @@ de: &de
   mcp_token_has_been_removed: Das MCP-Token wurde entfernt.
   enable_mcp_server: MCP-Server aktivieren
   all_existing_mcp_connections_will_be_stopped_immediately_when_this_setting_is_disabled: Alle bestehenden MCP-Verbindungen werden sofort gestoppt, wenn diese Einstellung deaktiviert wird.
-  connect_to_docuseal_mcp: Mit DocuSeal MCP verbinden
+  connect_to_docuseal_mcp: Mit DacForge MCP verbinden
   add_the_following_to_your_mcp_client_configuration: Fügen Sie Folgendes zu Ihrer MCP-Client-Konfiguration hinzu
   works_with_claude_desktop_cursor_windsurf_vs_code_and_any_mcp_compatible_client: Funktioniert mit Claude Desktop, Cursor, Windsurf, VS Code und jedem MCP-kompatiblen Client.
   your_email_address_has_been_changed: Ihre E-Mail-Adresse wurde geändert
@@ -8320,7 +8320,7 @@ nl: &nl
   use_otp_code_to_sign_in_or_click_the_link_below_html: 'Gebruik de code <b>%{code}</b> om in te loggen of klik op de onderstaande link:'
   complete_sign_in: Inloggen voltooien
   please_reply_to_this_email_if_you_dont_recognize_this_sign_in_attempt: Reageer op deze e-mail als u deze aanmeldpoging niet herkent.
-  docuseal_support: DocuSeal Support
+  docuseal_support: DacForge Support
   use_the_edit_form_to_move_it_to_another_team: Gebruik het bewerkingsformulier om het naar een ander team te verplaatsen.
   too_many_sms_attempts_try_again_in_a_few_seconds: Te veel SMS-pogingen. Probeer het over enkele seconden opnieuw.
   number_phone_number_is_invalid: Telefoonnummer +%{number} is ongeldig
@@ -8352,7 +8352,7 @@ nl: &nl
   manage: Beheren
   manage_plan: Abonnement beheren
   this_submission_has_multiple_signers_which_prevents_the_use_of_a_sharing_link_html: Deze inzending heeft meerdere ondertekenaars, waardoor het gebruik van een deellink niet mogelijk is omdat onduidelijk is welke ondertekenaar verantwoordelijk is voor specifieke velden. Volg deze <a href="https://www.docuseal.com/resources/pre-filling-recipients" class="link font-bold" rel="noopener noreferrer nofollow" target="_blank">handleiding</a> om de standaardgegevens van de ondertekenaar te definiëren.
-  welcome_to_docuseal: Welkom bij DocuSeal
+  welcome_to_docuseal: Welkom bij DacForge
   start_a_quick_tour_to_learn_how_to_create_and_send_your_first_document: Start een korte rondleiding om te leren hoe u uw eerste document maakt en verzendt
   start_tour: Rondleiding starten
   name_a_z: Naam A-Z
@@ -8511,7 +8511,7 @@ nl: &nl
   mcp_token_has_been_removed: Het MCP-token is verwijderd.
   enable_mcp_server: MCP-server inschakelen
   all_existing_mcp_connections_will_be_stopped_immediately_when_this_setting_is_disabled: Alle bestaande MCP-verbindingen worden onmiddellijk gestopt wanneer deze instelling wordt uitgeschakeld.
-  connect_to_docuseal_mcp: Verbinden met DocuSeal MCP
+  connect_to_docuseal_mcp: Verbinden met DacForge MCP
   add_the_following_to_your_mcp_client_configuration: Voeg het volgende toe aan uw MCP-clientconfiguratie
   works_with_claude_desktop_cursor_windsurf_vs_code_and_any_mcp_compatible_client: Werkt met Claude Desktop, Cursor, Windsurf, VS Code en elke MCP-compatibele client.
   your_email_address_has_been_changed: Uw e-mailadres is gewijzigd

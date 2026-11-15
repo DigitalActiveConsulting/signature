@@ -61,18 +61,7 @@ async function seed (browser) {
   }
 
   await page.goto('/settings/api')
-  const tokenInput = page.locator('input[readonly], input[type="text"]').filter({ hasText: '' })
-  let token = null
-  for (const value of await tokenInput.evaluateAll((els) => els.map((e) => e.value))) {
-    if (/^[A-Za-z0-9]{20,}$/.test(value)) token = value
-  }
-  if (!token) {
-    const reveal = page.getByRole('button', { name: /reveal/i })
-    if (await reveal.count()) { await reveal.first().click(); await sleep(1000) }
-    for (const value of await page.locator('input').evaluateAll((els) => els.map((e) => e.value))) {
-      if (/^[A-Za-z0-9]{20,}$/.test(value)) token = value
-    }
-  }
+  const token = await page.$eval('[data-token]', (el) => el.dataset.token).catch(() => null)
   if (!token) throw new Error('API token not found on /settings/api')
 
   const pdf = await fs.readFile(FIXTURE)
