@@ -22,6 +22,24 @@ module.exports = {
           '--tab-border': '2px',
           '--tab-radius': '.5rem'
         }
+      },
+      {
+        'dacforge-dark': {
+          'color-scheme': 'dark',
+          primary: '#2a2a26',
+          'primary-content': '#f1f0ea',
+          secondary: '#ef5a38',
+          accent: '#ef5a38',
+          neutral: '#ef5a38',
+          'neutral-content': '#ffffff',
+          'base-100': '#111110',
+          'base-200': '#1a1a18',
+          'base-300': '#2a2a26',
+          'base-content': '#f1f0ea',
+          '--rounded-btn': '1.9rem',
+          '--tab-border': '2px',
+          '--tab-radius': '.5rem'
+        }
       }
     ]
   }

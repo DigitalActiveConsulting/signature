@@ -198,14 +198,14 @@
         role="img"
         :aria-label="t('signature_drawing_area')"
         style="padding: 1px; 0"
-        class="bg-white border border-base-300 rounded-2xl w-full draw-canvas"
+        class="bg-white keep-light border border-base-300 rounded-2xl w-full draw-canvas"
         @touchstart.passive="lockSwipe"
         @touchend.passive="unlockSwipe"
         @touchcancel.passive="unlockSwipe"
       />
       <div
         v-if="isShowQr"
-        class="top-0 bottom-0 right-0 left-0 absolute bg-white rounded-2xl m-0.5"
+        class="top-0 bottom-0 right-0 left-0 absolute bg-white keep-light rounded-2xl m-0.5"
       />
       <div
         v-if="isShowQr"
@@ -223,7 +223,7 @@
         </div>
         <div class="flex items-center justify-center w-full h-full p-4">
           <div
-            class="bg-white p-4 rounded-xl h-full"
+            class="bg-white keep-light p-4 rounded-xl h-full"
           >
             <canvas
               ref="qrCanvas"

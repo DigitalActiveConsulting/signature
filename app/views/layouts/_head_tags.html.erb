@@ -2,6 +2,14 @@
   <%= turbo_native_app? ? content_for(:native_title) : (content_for(:html_title) || (signed_in? ? Docuseal::BRAND_NAME : "#{Docuseal::BRAND_NAME} | Document Signing")) %>
 </title>
 <%= render 'shared/meta' %>
+<script>
+  (function () {
+    var query = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)')
+    var apply = function () { document.documentElement.setAttribute('data-theme', query && query.matches ? 'dacforge-dark' : 'docuseal') }
+    apply()
+    if (query && query.addEventListener) query.addEventListener('change', apply)
+  })()
+</script>
 <% if turbo_native_app? %>
   <meta name="turbo-cache-control" content="no-preview">
   <%= render 'layouts/native_styles' %>

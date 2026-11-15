@@ -159,7 +159,7 @@
         ref="canvas"
         role="img"
         :aria-label="t('initials_drawing_area')"
-        class="bg-white border border-base-300 rounded-2xl w-full draw-canvas"
+        class="bg-white keep-light border border-base-300 rounded-2xl w-full draw-canvas"
         @touchstart.passive="lockSwipe"
         @touchend.passive="unlockSwipe"
         @touchcancel.passive="unlockSwipe"
