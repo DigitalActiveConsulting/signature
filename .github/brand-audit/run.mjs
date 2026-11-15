@@ -42,15 +42,23 @@ async function seed (browser) {
   await Promise.all([page.waitForNavigation(), page.click('form [type="submit"]')])
   console.log('after setup', page.url())
 
-  await page.goto('/settings/email')
-  console.log('settings email', page.url())
-  await page.fill('input[name$="[host]"]', 'localhost')
-  await page.fill('input[name$="[port]"]', '1025')
-  await page.fill('input[name$="[username]"]', 'audit')
-  await page.fill('input[name$="[password]"]', 'audit')
-  await page.fill('input[name$="[domain]"]', 'example.com')
-  await page.fill('input[name$="[from_email]"]', 'sign@example.com')
-  await Promise.all([page.waitForNavigation(), page.click('form:has(input[name$="[host]"]) [type="submit"]')])
+  try {
+    await page.goto('/settings/email')
+    await page.fill('input[name$="[host]"]', 'localhost')
+    await page.fill('input[name$="[port]"]', '1025')
+    await page.fill('input[name$="[username]"]', 'audit')
+    await page.fill('input[name$="[password]"]', 'audit')
+    await page.fill('input[name$="[domain]"]', 'example.com')
+    await page.fill('input[name$="[from_email]"]', 'sign@example.com')
+    const [res] = await Promise.all([
+      page.waitForResponse((r) => r.request().method() === 'POST' && r.url().includes('/settings/email')),
+      page.click('form:has(input[name$="[host]"]) [type="submit"]')
+    ])
+    await page.waitForLoadState('networkidle')
+    console.log('smtp settings', res.status())
+  } catch (error) {
+    console.log('smtp settings failed, emails will be missing', String(error).slice(0, 200))
+  }
 
   await page.goto('/settings/api')
   const tokenInput = page.locator('input[readonly], input[type="text"]').filter({ hasText: '' })
@@ -153,7 +161,8 @@ async function capture (browser, ctx) {
           const url = surface.path(ctx)
           const res = await page.goto(url, { waitUntil: 'networkidle', timeout: 30000 })
           await sleep(surface.settle || 800)
-          const findings = await page.evaluate(`(${collectFindings.toString()})(${JSON.stringify({ mode, ...AUDIT_ARGS })})`)
+          const auditMode = surface.printLight ? 'light' : mode
+          const findings = await page.evaluate(`(${collectFindings.toString()})(${JSON.stringify({ mode: auditMode, ...AUDIT_ARGS })})`)
           await page.screenshot({ path: path.join(OUT, 'shots', `${id}.png`), fullPage: true })
           results.push({ id, surface: surface.id, mode, viewport: vp.name, url, status: res && res.status(), finalUrl: page.url().replace(BASE, ''), findings })
         } catch (error) {

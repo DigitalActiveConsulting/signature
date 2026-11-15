@@ -1,6 +1,7 @@
 // Every screen the audit captures. `who` picks the browser session: admin is
 // signed in, client is a fresh visitor with no cookies. `path` may read the
 // seeded fixture ids from ctx. `mobile` adds a phone-width capture.
+// `printLight` marks a printable page that stays light in dark mode.
 export const SURFACES = [
   { id: 'sign-in', who: 'client', path: () => '/sign_in' },
   { id: 'password-new', who: 'client', path: () => '/password/new' },
@@ -12,7 +13,7 @@ export const SURFACES = [
   { id: 'template-show', who: 'admin', path: (c) => `/templates/${c.template.id}` },
   { id: 'template-preview', who: 'admin', path: (c) => `/templates/${c.template.id}/preview` },
   { id: 'template-form-preview', who: 'admin', path: (c) => `/templates/${c.template.id}/form`, settle: 2000 },
-  { id: 'template-share-qr', who: 'admin', path: (c) => `/templates/${c.template.id}/share_link_qr` },
+  { id: 'template-share-qr', who: 'admin', path: (c) => `/templates/${c.template.id}/share_link_qr`, printLight: true },
   { id: 'templates-archived', who: 'admin', path: () => '/templates/archived' },
   { id: 'submissions', who: 'admin', path: () => '/submissions' },
   { id: 'submissions-archived', who: 'admin', path: () => '/submissions/archived' },
