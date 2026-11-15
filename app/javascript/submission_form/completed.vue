@@ -100,7 +100,6 @@
       v-if="attribution"
       class="text-center mt-4"
       data-docuseal-attribution
-      data-docuseal-attribution
     >
       {{ t('powered_by') }}
       <a
