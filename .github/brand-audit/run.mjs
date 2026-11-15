@@ -40,8 +40,10 @@ async function seed (browser) {
   const appUrl = page.locator('input[name="encrypted_config[value]"]')
   if (await appUrl.count()) await appUrl.fill(BASE)
   await Promise.all([page.waitForNavigation(), page.click('form [type="submit"]')])
+  console.log('after setup', page.url())
 
   await page.goto('/settings/email')
+  console.log('settings email', page.url())
   await page.fill('input[name$="[host]"]', 'localhost')
   await page.fill('input[name$="[port]"]', '1025')
   await page.fill('input[name$="[username]"]', 'audit')
@@ -220,7 +222,17 @@ function summarize (results, emails, pdf) {
 
 await fs.mkdir(path.join(OUT, 'shots'), { recursive: true })
 const browser = await chromium.launch()
-const ctx = await seed(browser)
+let ctx
+try {
+  ctx = await seed(browser)
+} catch (error) {
+  for (const [i, page] of browser.contexts().flatMap((c) => c.pages()).entries()) {
+    await page.screenshot({ path: path.join(OUT, 'shots', `seed-failure-${i}.png`), fullPage: true }).catch(() => {})
+    await fs.writeFile(path.join(OUT, `seed-failure-${i}.html`), `<!-- ${page.url()} -->\n` + await page.content().catch(() => ''))
+    console.error('seed failure page', i, page.url())
+  }
+  throw error
+}
 await fs.writeFile(path.join(OUT, 'fixtures.json'), JSON.stringify({ ...ctx, adminState: undefined, token: undefined }, null, 2))
 const results = await capture(browser, ctx)
 const pdf = await downloadAuditPdf(ctx)
