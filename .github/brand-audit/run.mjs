@@ -1,6 +1,7 @@
 import { chromium } from 'playwright'
 import fs from 'node:fs/promises'
 import path from 'node:path'
+import { execFileSync } from 'node:child_process'
 import { SURFACES } from './surfaces.mjs'
 import { collectFindings, AUDIT_ARGS } from './rules.mjs'
 
@@ -11,6 +12,8 @@ const FIXTURE = process.env.FIXTURE_PDF || 'spec/fixtures/sample-document.pdf'
 const ADMIN = { email: 'admin@example.com', password: 'Audit-password-1234' }
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
+
+const rails = (code) => execFileSync('docker', ['exec', 'app', '/app/bin/rails', 'runner', code], { encoding: 'utf8' })
 
 async function api (token, method, url, body) {
   const res = await fetch(BASE + url, {
@@ -42,26 +45,14 @@ async function seed (browser) {
   await Promise.all([page.waitForNavigation(), page.click('form [type="submit"]')])
   console.log('after setup', page.url())
 
-  try {
-    await page.goto('/settings/email')
-    await page.fill('input[name$="[host]"]', 'localhost')
-    await page.fill('input[name$="[port]"]', '1025')
-    await page.fill('input[name$="[username]"]', 'audit')
-    await page.fill('input[name$="[password]"]', 'audit')
-    await page.fill('input[name$="[domain]"]', 'example.com')
-    await page.fill('input[name$="[from_email]"]', 'sign@example.com')
-    const [res] = await Promise.all([
-      page.waitForResponse((r) => r.request().method() === 'POST' && r.url().includes('/settings/email')),
-      page.click('form:has(input[name$="[host]"]) [type="submit"]')
-    ])
-    await page.waitForLoadState('networkidle')
-    console.log('smtp settings', res.status())
-  } catch (error) {
-    console.log('smtp settings failed, emails will be missing', String(error).slice(0, 200))
-  }
-
-  await page.goto('/settings/api')
-  const token = await page.$eval('[data-token]', (el) => el.dataset.token).catch(() => null)
+  const token = rails(`
+    account = Account.first
+    EncryptedConfig.find_or_initialize_by(account:, key: EncryptedConfig::EMAIL_SMTP_KEY).update!(value: {
+      'host' => 'localhost', 'port' => '1025', 'username' => 'audit', 'password' => 'audit', 'domain' => 'example.com',
+      'authentication' => 'plain', 'security' => 'none', 'from_email' => 'sign@example.com'
+    })
+    puts User.first.access_token.token
+  `).trim().split('\n').pop()
   if (!token) throw new Error('API token not found on /settings/api')
 
   const pdf = await fs.readFile(FIXTURE)

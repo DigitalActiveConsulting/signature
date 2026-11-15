@@ -1,12 +1,40 @@
+<% url_options = Docuseal.default_url_options %>
+<% logo_url = "#{url_options[:protocol]}://#{url_options[:host]}#{":#{url_options[:port]}" if url_options[:port] && ![80, 443].include?(url_options[:port])}/icon-192.png" %>
 <!DOCTYPE html>
 <html>
   <head>
     <title></title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <style></style>
+    <meta name="color-scheme" content="light">
+    <style>
+      a { color: #d94925; }
+      p { margin: 0 0 16px; }
+    </style>
   </head>
-  <body dir="<%= TextUtils.rtl?(yield) ? 'rtl' : 'auto' %>">
-    <%= yield %>
-    <%= render partial: 'shared/mailer_attribution' %>
+  <body style="margin: 0; padding: 0; background-color: #fafaf7;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color: #fafaf7;">
+      <tr>
+        <td align="center" style="padding: 32px 16px;">
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width: 560px;">
+            <tr>
+              <td style="padding: 0 4px 20px; font-family: Inter, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 700; color: #0a0a0a;">
+                <img src="<%= logo_url %>" width="28" height="28" alt="" style="vertical-align: middle; border: 0; border-radius: 6px; margin-right: 8px;"><span style="vertical-align: middle;"><%= Docuseal.product_name %></span>
+              </td>
+            </tr>
+            <tr>
+              <td dir="<%= TextUtils.rtl?(yield) ? 'rtl' : 'auto' %>" style="background-color: #ffffff; border: 1px solid #d8d8d2; border-radius: 12px; padding: 28px; font-family: Inter, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 15px; line-height: 1.6; color: #0a0a0a;">
+                <%= yield %>
+                <%= render partial: 'shared/mailer_attribution' %>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding: 20px 4px 0; font-family: Inter, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 12px; line-height: 1.5; color: #6b6b6b;">
+                Digital Active Consulting DOOEL &middot; <a href="<%= Docuseal::BRAND_URL %>" style="color: #6b6b6b;">dacforge.com</a>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
   </body>
 </html>
