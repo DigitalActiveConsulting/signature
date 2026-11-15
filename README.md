@@ -1,3 +1,5 @@
+> **DacForge build.** This fork runs at sign.dacforge.com. It changes upstream DocuSeal in two ways: emails carry no open-source attribution footer, and the app uses DacForge branding. The "Powered by DocuSeal" credit stays on signing pages, as `LICENSE_ADDITIONAL_TERMS` requires. Changes live on the `dac` branch. Pushing to `dac` builds `ghcr.io/digitalactiveconsulting/signature:<commit sha>` through `.github/workflows/ghcr.yml`. To take an upstream release, rebase `dac` onto the new upstream tag, push, then set the new image tag on the Coolify service.
+
 <h1 align="center" style="border-bottom: none">
   <div>
     <a href="https://www.docuseal.com">
