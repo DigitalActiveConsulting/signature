@@ -12,7 +12,6 @@ class ErrorsController < ActionController::Base
     '/submissions/pdf',
     '/api/submissions/pdf',
     '/templates/pdf',
-    '/api/templates/pdf',
     '/templates/doc',
     '/api/templates/doc',
     '/templates/docx',
