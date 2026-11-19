@@ -3,6 +3,7 @@
 // seeded fixture ids from ctx. `mobile` adds a phone-width capture.
 // `printLight` marks a printable page that stays light in dark mode.
 export const SURFACES = [
+  { id: 'landing', who: 'client', path: () => '/', mobile: true },
   { id: 'sign-in', who: 'client', path: () => '/sign_in' },
   { id: 'password-new', who: 'client', path: () => '/password/new' },
   { id: 'error-404', who: 'client', path: () => '/this-page-does-not-exist' },
